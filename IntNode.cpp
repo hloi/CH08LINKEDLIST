@@ -32,3 +32,7 @@ void IntNode::PrintNodeData() {
 IntNode* IntNode::GetNext() {
     return this->nextNodePtr;
 }
+
+void IntNode::setNextNodePtr(IntNode *nextNodePtr) {
+    this->nextNodePtr = nextNodePtr;
+}

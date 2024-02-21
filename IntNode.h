@@ -10,11 +10,13 @@ class IntNode {
 public:
     IntNode(int dataInit = 0, IntNode* nextLoc = nullptr);
     void InsertAfter(IntNode* nodeLoc);
+    void setNextNodePtr(IntNode *nextNodePtr);
     IntNode* GetNext();
     void PrintNodeData();
 private:
     int dataVal;
     IntNode* nextNodePtr;
+
 };
 
 

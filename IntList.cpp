@@ -10,9 +10,9 @@ void IntList::pushFront(IntNode *newNode) {
         tail = newNode;
     }
     else {
-        IntNode* tmp = newNode->GetNext();
-        tmp = head;
-        head = tmp;
+        newNode->setNextNodePtr(head);
+        head = newNode;
+
     }
 
 
@@ -28,5 +28,15 @@ void IntList::print() {
     while (tmp != nullptr) {
         tmp->PrintNodeData();
         tmp = tmp->GetNext();
+    }
+}
+
+void IntList::pushBack(IntNode *newNode) {
+    if (head == nullptr) {
+        pushFront(newNode);
+    }
+    else {
+        tail->setNextNodePtr(newNode);
+        tail = newNode;
     }
 }

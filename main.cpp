@@ -7,6 +7,10 @@ int main() {
     list1.pushFront(node1);
     IntNode* node2 = new IntNode(10);
     list1.pushFront(node2);
+    IntNode* node3 = new IntNode(20);
+    list1.pushBack(node3);
+    IntNode* node4 = new IntNode(30);
+    list1.pushBack(node4);
     list1.print();
 
 
