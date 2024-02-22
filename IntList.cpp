@@ -1,8 +1,10 @@
 //
 // Created by hloi on 2/20/2024.
 //
-
+#include <iostream>
 #include "IntList.h"
+
+using namespace std;
 
 void IntList::pushFront(IntNode *newNode) {
     if (head == nullptr) {
@@ -38,5 +40,75 @@ void IntList::pushBack(IntNode *newNode) {
     else {
         tail->setNextNodePtr(newNode);
         tail = newNode;
+    }
+}
+
+IntList::IntList(const IntList& other) {
+    cout << "copy constructor called." << endl;
+    head = nullptr;
+    tail = nullptr;
+    IntNode* tmp = other.head;
+    while (tmp != nullptr) {
+        IntNode* newNode = new IntNode(*tmp);
+        pushBack(newNode);
+        tmp = tmp->GetNext();
+    }
+
+}
+//
+IntList &IntList::operator=(const IntList &other) {
+    cout << "operator= called." << endl;
+    if (this != &other) {  // no self assigned
+        //delete this;  // delete current list
+        deleteList();  // empty the list
+
+        IntNode* tmp = other.head;
+        while (tmp != nullptr) {
+            IntNode* newNode = new IntNode(*tmp);
+            pushBack(newNode);
+            tmp = tmp->GetNext();
+        }
+
+    }
+
+    return *this;
+}
+
+IntList::~IntList() {
+    cout << "call destructor for linked list" << endl;
+    deleteList();
+
+}
+
+void IntList::deleteList() {
+    IntNode* tmp = head;
+    while (tmp != nullptr) {
+        IntNode* tmpNode = tmp;
+        tmp = tmp->GetNext();
+        cout << "delete ";
+        tmpNode->PrintNodeData();
+        delete tmpNode;
+    }
+    head = nullptr;
+    tail = nullptr;
+}
+
+void IntList::inserSort(IntNode *newNode) {
+    IntNode* tmp = head;
+    if (newNode < head || newNode == nullptr) {
+        pushFront(newNode);
+    }
+    else if (newNode > tail) {
+        pushBack(newNode);
+    }
+    else {
+        while (tmp->GetNext() != nullptr) {
+            if (newNode < tmp->GetNext()) {  // newNode.operator>(tmp)
+                tmp->InsertAfter(newNode);
+            }
+
+            tmp = tmp->GetNext();
+        }
+
     }
 }

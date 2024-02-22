@@ -36,3 +36,12 @@ IntNode* IntNode::GetNext() {
 void IntNode::setNextNodePtr(IntNode *nextNodePtr) {
     this->nextNodePtr = nextNodePtr;
 }
+
+IntNode::IntNode(const IntNode &other) {
+    dataVal = other.dataVal;
+    nextNodePtr = nullptr;
+}
+
+bool IntNode::operator>(const IntNode &other) const {
+    return this->dataVal > other.dataVal;
+}
