@@ -42,6 +42,10 @@ IntNode::IntNode(const IntNode &other) {
     nextNodePtr = nullptr;
 }
 
-bool IntNode::operator>(const IntNode &other) const {
-    return this->dataVal > other.dataVal;
+bool IntNode::operator<(const IntNode &other) const {
+    return this->dataVal < other.dataVal;
+}
+
+bool IntNode::operator==(const IntNode &other) const {
+    return (this->dataVal == other.dataVal);
 }

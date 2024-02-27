@@ -25,7 +25,7 @@ IntList::IntList() {
     tail = nullptr;
 }
 
-void IntList::print() {
+void IntList::printList() {
     IntNode* tmp = head;
     while (tmp != nullptr) {
         tmp->PrintNodeData();
@@ -93,17 +93,17 @@ void IntList::deleteList() {
     tail = nullptr;
 }
 
-void IntList::inserSort(IntNode *newNode) {
+void IntList::insertSort(IntNode *newNode) {
     IntNode* tmp = head;
-    if (newNode < head || newNode == nullptr) {
+    if (head == nullptr || *newNode < *head) {
         pushFront(newNode);
     }
-    else if (newNode > tail) {
+    else if (!(*newNode < *tail)) {
         pushBack(newNode);
     }
     else {
         while (tmp->GetNext() != nullptr) {
-            if (newNode < tmp->GetNext()) {  // newNode.operator>(tmp)
+            if (*newNode < *tmp->GetNext()) {  // newNode.operator>(tmp)
                 tmp->InsertAfter(newNode);
             }
 
@@ -112,3 +112,8 @@ void IntList::inserSort(IntNode *newNode) {
 
     }
 }
+
+IntNode *IntList::getHead() const {
+    return head;
+}
+

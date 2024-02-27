@@ -14,7 +14,8 @@ public:
     void setNextNodePtr(IntNode *nextNodePtr);
     IntNode* GetNext();
     void PrintNodeData();
-    bool operator>(const IntNode& other) const;
+    bool operator<(const IntNode& other) const;
+    bool operator==(const IntNode& other) const;
 
 private:
     int dataVal;
