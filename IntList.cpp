@@ -55,7 +55,7 @@ IntList::IntList(const IntList& other) {
     }
 
 }
-//
+
 IntList &IntList::operator=(const IntList &other) {
     cout << "operator= called." << endl;
     if (this != &other) {  // no self assigned

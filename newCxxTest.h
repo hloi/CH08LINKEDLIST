@@ -101,5 +101,59 @@ public:
             tmp = tmp->GetNext();
         }
     }
+
+    void testOpAssignment() {
+        IntList list1;
+        IntNode* node1 = new IntNode(5);
+        list1.pushFront(node1);
+        IntNode* node2 = new IntNode(10);
+        list1.pushFront(node2);
+        IntNode* node3 = new IntNode(20);
+        list1.pushBack(node3);
+
+        IntList list2;
+        list2 = list1;
+
+        IntNode* tmp1 = list1.getHead();
+        IntNode* tmp2 = list2.getHead();
+
+        while (tmp1 != nullptr) {
+            TS_ASSERT(tmp1 != tmp2);
+            tmp1 = tmp1->GetNext();
+            tmp2 = tmp2->GetNext();
+
+        }
+
+
+
+    }
+
+    void testCopyConstructor() {
+        IntList list1;
+        IntNode* node1 = new IntNode(5);
+        list1.pushFront(node1);
+        IntNode* node2 = new IntNode(10);
+        list1.pushFront(node2);
+        IntNode* node3 = new IntNode(20);
+        list1.pushBack(node3);
+
+        IntList list2 = list1;
+
+
+        IntNode* tmp1 = list1.getHead();
+        IntNode* tmp2 = list2.getHead();
+
+        while (tmp1 != nullptr) {
+            TS_ASSERT(tmp1 != tmp2);
+            tmp1 = tmp1->GetNext();
+            tmp2 = tmp2->GetNext();
+
+        }
+
+
+
+    }
+
+
 };
 #endif /* NEWCXXTEST_H */

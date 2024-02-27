@@ -39,5 +39,17 @@ public:
  void runTest() { suite_newCxxTest.testLessOp(); }
 } testDescription_suite_newCxxTest_testLessOp;
 
+static class TestDescription_suite_newCxxTest_testOpAssignment : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_newCxxTest_testOpAssignment() : CxxTest::RealTestDescription( Tests_newCxxTest, suiteDescription_newCxxTest, 105, "testOpAssignment" ) {}
+ void runTest() { suite_newCxxTest.testOpAssignment(); }
+} testDescription_suite_newCxxTest_testOpAssignment;
+
+static class TestDescription_suite_newCxxTest_testCopyConstructor : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_newCxxTest_testCopyConstructor() : CxxTest::RealTestDescription( Tests_newCxxTest, suiteDescription_newCxxTest, 131, "testCopyConstructor" ) {}
+ void runTest() { suite_newCxxTest.testCopyConstructor(); }
+} testDescription_suite_newCxxTest_testCopyConstructor;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
